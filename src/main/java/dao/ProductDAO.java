@@ -349,23 +349,6 @@ public class ProductDAO {
         return discountedProducts;
     }
 
-    public List<Product> getProductPrices() {
-        List<Product> productsWithPrices = new ArrayList<>();
-        query = "SELECT id, title, price FROM products";
-        try {
-            ps = con.prepareStatement(query);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                Product product = new Product();
-                product.setId(rs.getInt(1));
-                product.setTitle(rs.getString(2));
-                product.setPrice(rs.getString(3));
-                productsWithPrices.add(product);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return productsWithPrices;
-    }
+
 
 }
